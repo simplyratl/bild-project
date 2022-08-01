@@ -1,0 +1,105 @@
+@use "../globals/functions" as *;
+
+.footer {
+    margin-top: em(50px);
+
+    &__wrapper {
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__top,
+    &__bottom {
+        display: flex;
+        justify-content: center;
+        height: 140px;
+        width: 100%;
+        background-color: var(--dark-gray);
+    }
+
+    &__top-wrapper {
+        @media screen and (max-width: 680px) {
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            padding: em(18px) 0 !important;
+        }
+    }
+
+    &__top-wrapper,
+    &__bottom-wrapper {
+        width: var(--max-width-section);
+        margin: auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        @media screen and (max-width: 1000px) {
+            padding: 0 4%;
+        }
+    }
+    &__heading {
+        font-size: rem(24px);
+        color: #efefef;
+        font-weight: 600;
+        text-transform: uppercase;
+
+        @media screen and (max-width: 680px) {
+            font-size: rem(20px);
+        }
+    }
+
+    &__button {
+        width: 240px;
+        height: 40px;
+        background-color: var(--primary);
+        color: #fff;
+        border: none;
+        font-size: rem(14px);
+        font-weight: 600;
+        cursor: pointer;
+    }
+
+    &__bottom {
+        background-color: #efefef;
+        height: 63px;
+    }
+
+    &__bottom-wrapper {
+        @media screen and (max-width: 680px) {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding: em(18px) 0 !important;
+        }
+
+        .copyright {
+            color: var(--text-color-gray);
+            font-size: rem(12px);
+            text-transform: uppercase;
+        }
+
+        .navigation {
+            position: relative;
+            list-style: none;
+            display: flex;
+
+            & .nav-item + .nav-item:before {
+                content: "/";
+                padding: 6.5px;
+                color: var(--text-color-gray);
+            }
+
+            .nav-link {
+                color: var(--text-color-gray);
+
+                font-size: rem(12px);
+
+                &:hover {
+                    color: var(--primary);
+                }
+            }
+        }
+    }
+}

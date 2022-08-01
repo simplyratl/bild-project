@@ -1,0 +1,76 @@
+@use "../../../scss/globals/functions" as *;
+
+.applications {
+    margin-top: em(50px);
+
+    @media screen and (max-width: 1000px) {
+        padding: 0 4%;
+    }
+
+    &__wrapper {
+        max-width: var(--max-width-section);
+        margin: auto;
+    }
+
+    &__top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: var(--gray);
+
+        .breadcrumbs {
+            .breadcrumb {
+                font-size: rem(18px);
+                font-weight: 600;
+                cursor: pointer;
+
+                &.active {
+                    color: var(--primary);
+                }
+
+                &:hover {
+                    color: var(--primary);
+                }
+            }
+        }
+
+        .control {
+            display: flex;
+            gap: 10px;
+
+            .icon {
+                width: 15px;
+                height: 15px;
+                cursor: pointer;
+
+                &.active {
+                    color: var(--primary);
+                }
+            }
+        }
+    }
+
+    &__main {
+        position: relative;
+        height: 100%;
+        margin-top: em(50px);
+        display: grid;
+        gap: 20px;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        grid-template-rows: repeat(auto-fill);
+        grid-auto-rows: (minmax(220px, 1fr));
+        min-height: 60vh;
+
+        &.list {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+
+    .loading {
+        position: absolute;
+        left: 50%;
+        bottom: em(-29px);
+        transform: translateX(-50%) !important;
+    }
+}

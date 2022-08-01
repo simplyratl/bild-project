@@ -1,0 +1,32 @@
+@use "../../globals/functions" as *;
+
+.banner {
+    background-color: var(--primary);
+    height: 100px;
+
+    &__wrapper {
+        max-width: var(--max-width-section);
+        height: 100%;
+        margin: auto;
+        display: flex;
+        align-items: center;
+
+        @media screen and (max-width: 1000px) {
+            padding: 0 4%;
+        }
+
+        @media screen and (max-width: 470px) {
+            justify-content: center;
+        }
+    }
+
+    &__header {
+        font-size: rem(30px);
+        color: #fff;
+        font-family: var(--font-heading);
+
+        @media screen and (max-width: 470px) {
+            font-size: rem(24px);
+        }
+    }
+}

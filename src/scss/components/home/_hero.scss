@@ -1,0 +1,90 @@
+@use "../../globals/functions" as *;
+
+.hero {
+    position: relative;
+    width: 100%;
+
+    &__wrapper {
+        position: relative;
+        background-color: var(--primary);
+        height: em(570px);
+
+        @media screen and (max-width: 760px) {
+            height: em(380px);
+        }
+
+        @media screen and (max-width: 480px) {
+            height: em(210px);
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("../../assets/images/sunburst.png");
+            background-size: cover;
+        }
+
+        .devices-container {
+            position: relative;
+            height: 100%;
+
+            .devices-wrapper {
+                position: absolute;
+                display: inline-block;
+                bottom: em(-70px);
+                left: 50%;
+                transform: translateX(-50%);
+                // background-color: red;
+
+                @media screen and (max-width: 1100px) {
+                    width: 80%;
+
+                    .devices {
+                        width: 100% !important;
+                        height: 100% !important;
+                        object-fit: contain;
+                    }
+                }
+            }
+
+            .devices {
+                width: em(832px);
+                height: em(472px);
+            }
+        }
+    }
+
+    &__bottom {
+        margin: 100px auto 0 auto;
+        max-width: 950px;
+        text-align: center;
+
+        .short-text {
+            padding: 0 8%;
+            color: var(--gray);
+            font-size: rem(16px);
+            text-transform: uppercase;
+            font-weight: 600;
+            color: #ababab;
+        }
+
+        .browse-portfolio {
+            margin-top: em(26px);
+            background-color: var(--primary);
+            border: none;
+            outline: none;
+            color: #fff;
+            width: em(184px);
+            height: em(40px);
+            box-sizing: content-box;
+            padding: 4px 12px;
+            cursor: pointer;
+            font-size: rem(14px);
+            font-weight: 600;
+        }
+    }
+}
