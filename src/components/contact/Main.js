@@ -1,5 +1,4 @@
-import axios from "axios";
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useState } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 
 const Main = () => {
@@ -19,8 +18,14 @@ const Main = () => {
     const validateForm = (e) => {
         e.preventDefault();
 
+        const regex = new RegExp(/^[A-Za-z0-9_!#$%&'*+\/=?`{|}~^.-]+@[A-Za-z0-9.-]+$/, "gm");
+
         if (name.length === 0 || email.length === 0 || message.length === 0)
             return setError("All fields must be filled.");
+
+        if (!regex.test(email)) {
+            return setError("Email not valid.");
+        }
 
         if (message.length > 1000) return setError("Message cannot be greater than 1000 characters.");
 

@@ -2,7 +2,7 @@
 
 .youtube {
     margin-top: 50px;
-    background-color: #eeefee;
+    background-color: #efefef;
     height: 320px;
 
     @media screen and (max-width: 1000px) {
@@ -46,6 +46,7 @@
             height: 100%;
             object-fit: cover;
             cursor: pointer;
+            z-index: -1 !important;
         }
     }
 
@@ -56,14 +57,13 @@
 
         .heading {
             font-weight: 600;
-            margin-bottom: 24px;
+            margin-bottom: rem(16px) !important;
             font-size: em(24px);
             text-transform: uppercase;
         }
 
         .paragraph {
             font-size: rem(14px);
-            line-height: 21px;
             font-weight: 400;
         }
     }

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 
 const Filter = ({ selectedFilter, setSelectedFilter }) => {
     const filters = ["ALL", "PRINT", "PHOTOGRAPHY", "WEB", "APPLICATIONS"];
@@ -11,7 +11,7 @@ const Filter = ({ selectedFilter, setSelectedFilter }) => {
                     key={index}
                     onClick={() => setSelectedFilter(filter)}
                 >
-                    {filter} /
+                    {filter}
                 </span>
             ))}
         </div>

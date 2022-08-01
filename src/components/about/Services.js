@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { BsFillGearFill, BsCameraFill, BsWindow } from "react-icons/bs";
 import { BiSearchAlt } from "react-icons/bi";
+import { BsCameraFill, BsFillGearFill, BsWindow } from "react-icons/bs";
 import TabData from "./services.json";
 
 const Services = () => {
@@ -48,8 +48,10 @@ const Services = () => {
                         <p className="services__paragraph">{tab.info}</p>
 
                         <ul className="services__list">
-                            {tab.list.map((list) => (
-                                <li className="list-element">{list}</li>
+                            {tab.list.map((list, index) => (
+                                <li className="list-element" key={index}>
+                                    {list}
+                                </li>
                             ))}
                         </ul>
                     </div>

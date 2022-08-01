@@ -108,7 +108,7 @@
 
             .item-inside {
                 display: flex;
-                gap: rem(10px);
+                row-gap: 6px;
 
                 &.address {
                     flex-direction: column;
@@ -127,6 +127,7 @@
                 &.bold {
                     font-weight: 600;
                     color: var(--gray);
+                    // width: 34px;
                 }
             }
         }

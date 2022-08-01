@@ -81,6 +81,12 @@
             opacity: 1 !important;
         }
 
+        @media screen and (max-width: 400px) {
+            height: auto;
+            max-height: 140px;
+            overflow: hidden;
+        }
+
         .slider-element {
             text-align: center;
             color: var(--gray);
@@ -138,11 +144,23 @@
 
 .slick-list {
     margin: 0 -14px;
+
+    @media screen and (max-width: 400px) {
+        margin: 0;
+    }
 }
 .slick-slide > div {
     margin: 0 14px;
     opacity: 0.5;
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    @media screen and (max-width: 400px) {
+        margin: 0;
+    }
+
+    @media screen and (max-width: 600px) {
+        opacity: 1;
+    }
 }
 
 .slick-slide {

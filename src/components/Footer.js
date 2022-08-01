@@ -18,22 +18,22 @@ const Footer = () => {
 
                         <ul className="navigation">
                             <li className="nav-item">
-                                <a href="#" className="nav-link">
+                                <a href="/" className="nav-link">
                                     HOME
                                 </a>
                             </li>
                             <li className="nav-item">
-                                <a href="#" className="nav-link">
+                                <a href="/about" className="nav-link">
                                     ABOUT
                                 </a>
                             </li>
                             <li className="nav-item">
-                                <a href="#" className="nav-link">
+                                <a href="/work" className="nav-link">
                                     WORK
                                 </a>
                             </li>
                             <li className="nav-item">
-                                <a href="#" className="nav-link">
+                                <a href="/contact" className="nav-link">
                                     CONTACT
                                 </a>
                             </li>

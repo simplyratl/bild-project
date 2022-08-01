@@ -1,12 +1,12 @@
+import axios from "axios";
+import { AnimatePresence, motion } from "framer-motion";
 import React, { useEffect, useState } from "react";
 import { BsGridFill } from "react-icons/bs";
 import { FaBars } from "react-icons/fa";
-import axios from "axios";
+import { Oval } from "react-loader-spinner";
 import ApplicationGrid from "./ApplicationGrid";
 import ApplicationList from "./ApplicationList";
-import { Oval } from "react-loader-spinner";
 import Filter from "./Filter";
-import { motion, AnimatePresence } from "framer-motion";
 
 const Applications = () => {
     const [posts, setPosts] = useState([]);

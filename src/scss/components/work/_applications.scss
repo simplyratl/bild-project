@@ -16,13 +16,36 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        color: var(--gray);
+        color: var(--text-color-gray);
+
+        @media screen and (max-width: 640px) {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: em(16px);
+        }
 
         .breadcrumbs {
+            @media screen and (max-width: 640px) {
+                overflow-x: auto;
+                overflow-y: hidden;
+                width: 100%;
+            }
+
+            .breadcrumb + .breadcrumb:before {
+                content: "/";
+                padding: 6.5px;
+                color: var(--text-color-gray);
+            }
+
             .breadcrumb {
+                position: relative;
                 font-size: rem(18px);
                 font-weight: 600;
                 cursor: pointer;
+                font-family: var(--font-heading);
+
+                @media screen and (max-width: 640px) {
+                }
 
                 &.active {
                     color: var(--primary);
@@ -59,7 +82,11 @@
         grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
         grid-template-rows: repeat(auto-fill);
         grid-auto-rows: (minmax(220px, 1fr));
-        min-height: 60vh;
+        min-height: 40vh;
+
+        @media screen and (max-width: 1000px) {
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        }
 
         &.list {
             display: flex;

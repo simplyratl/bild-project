@@ -23,7 +23,7 @@ const YoutubePopup = ({ setPopup }) => {
 
             <div className="youtube-popup__wrapper">
                 <iframe
-                    src="https://www.youtube.com/embed/trodpSUVNI8"
+                    src="https://www.youtube.com/embed/hz6k3kqTyko"
                     title="YouTube"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen

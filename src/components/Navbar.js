@@ -1,14 +1,18 @@
-import React, { useEffect } from "react";
-import { useLocation, Link } from "react-router-dom";
-import { BsTwitter, BsDribbble } from "react-icons/bs";
+import React from "react";
 import { BiRss } from "react-icons/bi";
-import { FaPinterestP, FaGooglePlusG } from "react-icons/fa";
-import { FaFacebookF } from "react-icons/fa";
+import { BsDribbble, BsTwitter } from "react-icons/bs";
+import { FaFacebookF, FaGooglePlusG, FaPinterestP } from "react-icons/fa";
+import { Link, useLocation } from "react-router-dom";
 
 const Navbar = () => {
-    const location = useLocation().pathname.replace("/", "");
+    const location = useLocation().pathname;
 
-    const navigation = [{ title: "home" }, { title: "about" }, { title: "work" }, { title: "contact" }];
+    const navigation = [
+        { title: "home", path: "/" },
+        { title: "about", path: "/about" },
+        { title: "work", path: "/work" },
+        { title: "contact", path: "/contact" },
+    ];
 
     return (
         <nav className="navbar">
@@ -20,24 +24,24 @@ const Navbar = () => {
                     </Link>
 
                     <div className="navbar__socials">
-                        <Link to="#" className="social">
+                        <a href="#" className="social" target="_blank">
                             <BsTwitter className="icon" />
-                        </Link>
-                        <Link to="#" className="social">
+                        </a>
+                        <a href="#" className="social" target="_blank">
                             <FaFacebookF className="icon" />
-                        </Link>
-                        <Link to="#" className="social">
+                        </a>
+                        <a href="#" className="social" target="_blank">
                             <BiRss className="icon" />
-                        </Link>
-                        <Link to="#" className="social">
+                        </a>
+                        <a href="#" className="social" target="_blank">
                             <FaPinterestP className="icon" />
-                        </Link>
-                        <Link to="#" className="social">
+                        </a>
+                        <a href="#" className="social" target="_blank">
                             <FaGooglePlusG className="icon" />
-                        </Link>
-                        <Link to="#" className="social">
+                        </a>
+                        <a href="#" className="social" target="_blank">
                             <BsDribbble className="icon" />
-                        </Link>
+                        </a>
                     </div>
                 </div>
 
@@ -45,12 +49,12 @@ const Navbar = () => {
                     <ul className="nav-list">
                         {navigation.map((nav, index) => (
                             <li className="nav-item" key={index}>
-                                <Link
-                                    to={`/${nav.title === "home" ? "" : nav.title}`}
-                                    className={`nav-link ${location === nav.title && "active"}`}
+                                <a
+                                    href={`${nav.path}`}
+                                    className={`nav-link ${location === nav.path && "active"}`}
                                 >
                                     {nav.title}
-                                </Link>
+                                </a>
                             </li>
                         ))}
                     </ul>

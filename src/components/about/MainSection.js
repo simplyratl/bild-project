@@ -6,7 +6,7 @@ const MainSection = () => {
             <div className="main-section__wrapper">
                 <div className="main-section__top">
                     <img
-                        src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8YnVzaW5lc3NtYW58ZW58MHx8MHx8&w=1000&q=80"
+                        src={require("../../assets/images/about-businessman.png")}
                         alt="About us"
                         className="main-section__image"
                     />

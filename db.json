@@ -1,36 +1,4 @@
 {
-  "slider": [
-      {
-          "id": 1, "image": "https://cdn.theatlantic.com/thumbor/AxqhWz-VfqBOhQE4IhxECOQx0ns=/0x0:3600x2025/960x540/media/img/mt/2022/07/main_image_star_forming_region_carina_nircam_final_5mb/original.jpg"
-      },
-      {
-          "id": 2, "image": "https://www.amateurphotographer.co.uk/wp-content/uploads/2017/11/Bliss_Copyright_preview-e1511540750271.jpeg"
-      },
-      {
-          "id": 3, "image": "https://play-lh.googleusercontent.com/85WnuKkqDY4gf6tndeL4_Ng5vgRk7PTfmpI4vHMIosyq6XQ7ZGDXNtYG2s0b09kJMw"
-      },
-      {
-          "id": 4, "image": "http://www.joinprogramming.com/wp-content/uploads/2021/10/Screen-Shot-2021-09-17-at-1.31.39-PM.png"
-      },
-      {
-          "id": 5, "image": "https://uploads-ssl.webflow.com/629e7c3183ef766a2e3436c3/629fa0ca59a03fabb0d146a8_social-audio.png"
-      },
-      {
-          "id": 6, "image": "https://ugtechmag.com/wp-content/uploads/2022/05/social-media-tips-blog-header-no-logo.png"
-      }
-  ],
-  "slider-text":[
-    {
-        "id": 1, 
-        "title": "Dark UI Kit Freebie", 
-        "info": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eu erat lacus, vel congue mauris. Fusce velit justo, faucibus eu sagittis."
-    },
-    {
-        "id": 2, 
-        "title": "Light UI Kit Freebie Exclusive", 
-        "info": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eu erat lacus, vel congue mauris. Fusce velit justo, faucibus eu sagittis. Fusce velit justo, faucibus eu sagittis"
-    }
-  ],
   "posts": [
     {"id":1,"title":"Rocket Gibraltar","info":"Sed sagittis. Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci. Nullam molestie nibh in lectus.\n\nPellentesque at nulla. Suspendisse potenti. Cras in purus eu magna vulputate luctus.","image":"http://dummyimage.com/153x100.png/ff4444/ffffff","category":"photography"},
 {"id":2,"title":"Hannah Arendt","info":"In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus.\n\nNulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi.","image":"http://dummyimage.com/203x100.png/cc0000/ffffff","category":"applications"},

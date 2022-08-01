@@ -1,43 +1,12 @@
-import React, { useEffect, useRef, useState } from "react";
-import Slider from "react-slick";
-import axios from "axios";
+import React, { useRef } from "react";
 import { MdArrowBackIosNew, MdArrowForwardIos } from "react-icons/md";
-import "slick-carousel/slick/slick.css";
+import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
+import "slick-carousel/slick/slick.css";
+import { posts, textSlider } from "./sliders";
 
 const Featured = () => {
-    const [posts, setPosts] = useState([]);
-    const [textSlider, setTextSlider] = useState([]);
-
     const slider = useRef(null);
-
-    useEffect(() => {
-        const fetchPosts = async () => {
-            try {
-                const res = await axios("http://localhost:4000/slider");
-                setPosts(res.data);
-
-                return res;
-            } catch (error) {
-                console.log(error);
-            }
-        };
-        fetchPosts();
-    }, []);
-
-    useEffect(() => {
-        const fetchText = async () => {
-            try {
-                const res = await axios("http://localhost:4000/slider-text");
-                setTextSlider(res.data);
-
-                return res;
-            } catch (error) {
-                console.log(error);
-            }
-        };
-        fetchText();
-    }, []);
 
     const settingsPosts = {
         centerMode: true,
@@ -55,7 +24,7 @@ const Featured = () => {
                 },
             },
             {
-                breakpoint: 600,
+                breakpoint: 700,
                 settings: {
                     centerMode: false,
                     slidesToShow: 2,
@@ -105,7 +74,7 @@ const Featured = () => {
 
                 <div className="post-slider">
                     <Slider {...settingsPosts}>
-                        {posts.map((post, index) => (
+                        {posts().map((post, index) => (
                             <div className="slider-element" key={index}>
                                 <img src={post.image} alt="" />
                                 <a href="#" className="social-link"></a>
@@ -118,7 +87,7 @@ const Featured = () => {
                     <MdArrowBackIosNew onClick={() => slider?.current?.slickPrev()} className="arrow left" />
 
                     <Slider {...settingsText} ref={slider}>
-                        {textSlider.map((text, index) => (
+                        {textSlider().map((text, index) => (
                             <div className="slider-element" key={index}>
                                 <h4>{text.title}</h4>
 
