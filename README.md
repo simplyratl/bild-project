@@ -4,7 +4,7 @@ A frontend test project that uses React JS.
 
 ## Installation
 
-Install the project with yarn or npm install (yarn recommended). That should
+Install the project with yarn or npm install (yarn recommended considering it is what I used). That should
 install all needed independecies that are used inside the project.
 
 ```bash
@@ -12,9 +12,17 @@ install all needed independecies that are used inside the project.
   npm install
 ```
 
+## Starting mockup backend
+
+After installing you need to start backend.
+
+```bash
+  npx json-server --w db.json --port 4000
+```
+
 ## Starting the project
 
-After installing the project use yarn start or npm start
+All that's left to do is start the project using yarn start or npm start
 
 ```bash
   yarn start
