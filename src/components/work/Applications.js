@@ -12,11 +12,11 @@ const Applications = () => {
     const [posts, setPosts] = useState([]);
     const [category, setCategory] = useState(1);
     const [page, setPage] = useState(1);
-    const [limit, setLimit] = useState(6);
     const [loading, setLoading] = useState(true);
 
+    const [lockSwitch, setLockSwitch] = useState(false);
+
     const [selectedFilter, setSelectedFilter] = useState("ALL");
-    const [lastSelectedFilter, setLastSelectedFilter] = useState(selectedFilter);
 
     const [lockLoading, setLockLoading] = useState(false);
 
@@ -36,25 +36,38 @@ const Applications = () => {
         setLoading(true);
     };
 
-    const checkLocked = () => {
+    const loadStop = () => {
         setLoading(false);
     };
 
+    const setData = (res) => {
+        setPosts([...posts, ...res.data]);
+        setLoading(false);
+        setLockSwitch(false);
+    };
+
+    const notFoundData = () => {
+        setLoading(false);
+        setLockLoading(true);
+        setLockSwitch(false);
+    };
+
     const fetchByPage = async () => {
-        if (lockLoading) return checkLocked();
+        if (lockSwitch) return;
+        if (lockLoading) return loadStop();
+
+        setLockSwitch(true);
 
         try {
-            const res = await axios.get(`http://localhost:4000/posts?_page=${page}`);
+            const res = await axios.get(`http://localhost:4000/posts?_page=${page}&_limit=9`);
 
             if (res.data.length === 0) {
-                setLoading(false);
-                setLockLoading(true);
+                notFoundData();
                 return;
             }
 
             setTimeout(() => {
-                setPosts([...posts, ...res.data]);
-                setLoading(false);
+                setData(res);
             }, [1000]);
 
             setPage(page + 1);
@@ -66,22 +79,22 @@ const Applications = () => {
     };
 
     const fetchByCategories = async () => {
-        if (lockLoading) return checkLocked();
+        if (lockLoading) return loadStop();
+
+        setLockSwitch(true);
 
         try {
             const res = await axios.get(
-                `http://localhost:4000/posts?category=${selectedFilter.toLowerCase()}&_page=${page}`
+                `http://localhost:4000/posts?category=${selectedFilter.toLowerCase()}&_page=${page}&_limit=9`
             );
 
             if (res.data.length === 0) {
-                setLoading(false);
-                setLockLoading(true);
+                notFoundData();
                 return;
             }
 
             setTimeout(() => {
-                setPosts([...posts, ...res.data]);
-                setLoading(false);
+                setData(res);
             }, [1000]);
 
             setPage(page + 1);
@@ -105,8 +118,6 @@ const Applications = () => {
     }, [loading, selectedFilter]);
 
     useEffect(() => {
-        if (lockLoading) return;
-
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
     });
@@ -115,7 +126,11 @@ const Applications = () => {
         <div className="applications">
             <div className="applications__wrapper">
                 <div className="applications__top">
-                    <Filter setSelectedFilter={setSelectedFilter} selectedFilter={selectedFilter} />
+                    <Filter
+                        setSelectedFilter={setSelectedFilter}
+                        selectedFilter={selectedFilter}
+                        lockSwitch={lockSwitch}
+                    />
 
                     <div className="control">
                         <BsGridFill
@@ -162,9 +177,19 @@ const Applications = () => {
                     </AnimatePresence>
                 </div>
 
-                {lockLoading && <span className="error">No more results. {posts.length} results found.</span>}
-                {posts.length === 0 && <span className="error">No results found.</span>}
-                {/* {<h4>Results {posts.length}.</h4>} */}
+                <AnimatePresence>
+                    {lockLoading && (
+                        <motion.span
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            transition={{ duration: 0.2 }}
+                            className="error"
+                        >
+                            No more results. {posts.length} results found.
+                        </motion.span>
+                    )}
+                </AnimatePresence>
             </div>
         </div>
     );

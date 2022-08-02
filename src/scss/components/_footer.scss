@@ -1,6 +1,7 @@
 @use "../globals/functions" as *;
 
 .footer {
+    position: relative;
     margin-top: em(50px);
 
     &__wrapper {

@@ -1,6 +1,6 @@
 import React from "react";
 
-const Filter = ({ selectedFilter, setSelectedFilter }) => {
+const Filter = ({ selectedFilter, setSelectedFilter, lockSwitch }) => {
     const filters = ["ALL", "PRINT", "PHOTOGRAPHY", "WEB", "APPLICATIONS"];
 
     return (
@@ -9,7 +9,7 @@ const Filter = ({ selectedFilter, setSelectedFilter }) => {
                 <span
                     className={`breadcrumb ${selectedFilter === filter ? "active" : ""}`}
                     key={index}
-                    onClick={() => setSelectedFilter(filter)}
+                    onClick={() => !lockSwitch && setSelectedFilter(filter)}
                 >
                     {filter}
                 </span>
